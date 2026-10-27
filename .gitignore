@@ -36,3 +36,4 @@ backend/*.mp4
 
 # Downloaded local test tools (mediamtx, ffmpeg) — not part of the project, dev-only
 backend/.tools/
+backend/response.json
