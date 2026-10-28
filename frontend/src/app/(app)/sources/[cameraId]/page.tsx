@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { use, useMemo, useState } from "react";
+import { Suspense, use, useMemo, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -72,7 +72,9 @@ export default function CameraDetailPage({
       {camera?.source_type === "RTSP" || camera?.source_type === "SCREEN_CAPTURE" ? (
         <LiveCameraView cameraId={cameraId} camera={camera} />
       ) : (
-        <UploadCameraView cameraId={cameraId} />
+        <Suspense fallback={null}>
+          <UploadCameraView cameraId={cameraId} />
+        </Suspense>
       )}
     </div>
   );
